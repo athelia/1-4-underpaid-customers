@@ -1,9 +1,13 @@
+#set the melon cost
 melon_cost = 1.00
 
+#define some variables for customer 1 - customer name, 
+#quantity of melons, and what they have paid
 customer1_name = "Joe"
 customer1_melons = 5
 customer1_paid = 5.00
 
+#repeat for customer 2 all the way through customer 6
 customer2_name = "Frank"
 customer2_melons = 6
 customer2_paid = 6.00
@@ -24,12 +28,16 @@ customer6_name = "Ashley"
 customer6_melons = 3
 customer6_paid = 2.00
 
+# expected cost is the product of the number of melons and the cost
 customer1_expected = customer1_melons * melon_cost
+# if the expected isn't the same as the paid cost, print...
 if customer1_expected != customer1_paid:
+  # the paid and expected costs in human readable format. 
     print(f"{customer1_name} paid ${customer1_paid:.2f},",
           f"expected ${customer1_expected:.2f}"
           )
 
+#repeat the same process for all the customers....
 customer2_expected = customer2_melons * melon_cost
 if customer2_expected != customer2_paid:
     print(f"{customer2_name} paid ${customer2_paid:.2f},",
