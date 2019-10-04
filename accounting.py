@@ -1,3 +1,32 @@
+def identify_wrong_customer_accounts(file_path, melon_cost):
+  """Parse a file & melon cost to identify customers who have under or overpaid.
+
+  Takes in a string file_path and a float melon_cost and prints to the console 
+  when the expected payment for a customer does not match actual payment.
+
+  """
+  file = open(file_path)
+  for line in file:
+    line = line.rstrip()
+    sections = line.split('|')
+    
+    customer = sections[1]
+    melons = int(sections[2])
+    paid = float(sections[3])
+
+    amount_due = melon_cost * melons
+
+    if amount_due != paid:
+      print("{}".format(customer),
+        "paid ${:.2f},".format(paid),
+        "expected ${:.2f}.".format(amount_due)
+        )
+
+  file.close()
+
+identify_wrong_customer_accounts('customer-orders.txt', 1.00)
+
+"""
 #set the melon cost
 melon_cost = 1.00
 
@@ -67,3 +96,4 @@ if customer6_expected != customer6_paid:
     print(f"{customer6_name} paid ${customer6_paid:.2f},",
           f"expected ${customer6_expected:.2f}"
           )
+"""
